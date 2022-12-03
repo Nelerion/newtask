@@ -1,0 +1,24 @@
+@import "../../styles/vars.scss";
+@import "../../styles/style.scss";
+
+.header {
+  width: 100%;
+  background-color: $yellow;
+  border-bottom: 1px solid black;
+}
+
+.header__container{
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 41px;
+  padding-bottom: 23px;
+}
+
+.main__title {
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: 'Anek Telugu', sans-serif;
+    color:$grey;
+  }

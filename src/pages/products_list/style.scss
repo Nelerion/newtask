@@ -1,0 +1,83 @@
+@import "../../styles/vars.scss";
+
+.products {
+  margin-top: 85px;
+  margin-left: 176px;
+  padding-bottom: 100px;
+}
+
+.products__card {
+  width: 262px !important;
+  height: 350px !important;
+  background-color: #ffffff;
+  padding: 13px 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%23414141FF' stroke-width='1' stroke-dasharray='10' stroke-dashoffset='11' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 30px;
+}
+.products__card_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.products__card_image-block {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.products__card_image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.products__card_title {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: $grey;
+}
+.products__card_price-like {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.products__card_price {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  color: $grey;
+}
+
+.ReactVirtualized__List {
+  &::-webkit-scrollbar { 
+    width: 15px;
+    background-color: rgba(65, 65, 65, 0.3);
+  }
+
+  &::-webkit-scrollbar-button { 
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb { 
+    border-radius: 15px;
+    background-color: $yellow;
+  }
+
+}
+.ReactVirtualized__Grid__innerScrollContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 50px 20px;
+  box-sizing: border-box;
+
+}

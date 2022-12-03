@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Favorites from "./components/favorites/favorites";
+import Header from "./components/header/header";
+import List from "./pages/products_list/product_list";
+import "./styles/style.scss";
+import { useEffect } from "react";
+import {  dispatch } from "./state/state";
+import {Routes,Route} from "react-router-dom";
+import Product from "./pages/product/product";
+import { fetchProducts } from "./API/api";
 
-function App() {
+const App = () => {
+  const fetching = async () => {
+    let result = await fetchProducts;
+    try {
+      if (!result.status) {
+        throw new Error("Ошибка");
+      }
+      let json = await result.json();
+
+      dispatch({ type: "fetchProducts", payload: json });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetching();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="container content">
+        <Favorites />
+        <Routes>
+          <Route path="/" element={<List />}/>
+          <Route path="/product/:id" element={<Product />}/>
+        </Routes>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
